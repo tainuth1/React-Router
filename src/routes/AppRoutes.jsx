@@ -5,6 +5,10 @@ import About from "../pages/About";
 import Project from "../pages/Project";
 import Contact from "../pages/Contact";
 import NotFound from "../pages/NotFound";
+import ViewProject from "../pages/ViewProject";
+import Phone from "../pages/Phone";
+import Telegram from "../pages/Telegram";
+import Facebook from "../pages/Facebook";
 
 const AppRoutes = () => {
   return (
@@ -13,7 +17,12 @@ const AppRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Project />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/projects/:projectId" element={<ViewProject />} />
+        <Route path="/contact" element={<Contact />}>
+          <Route path="phone" element={<Phone />} />
+          <Route path="telegram" element={<Telegram />} />
+          <Route path="facebook" element={<Facebook />} />
+        </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
